@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoria Imperial | Yan Simon</title>
+    
+    <!-- Fontes de Luxo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- IMPERIAL CORE --- */
+        :root {
+            --bg-void: #000000;
+            --bg-panel: #080808;
+            --gold-royal: #C5A059;
+            --gold-light: #EBD598;
+            --gold-grad: linear-gradient(180deg, #C5A059 0%, #8A6E2F 100%);
+            --platinum: #E5E4E2;
+            --text-muted: #666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-void);
+            color: var(--platinum);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+        }
+
+        .gold-text {
+            background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728, #fbf5b7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .serif-italic {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--gold-royal);
+            font-size: 1.5rem;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 30px; }
+
+        /* --- BUTTON: THE SEAL --- */
+        .btn-empire {
+            display: inline-block;
+            background: linear-gradient(to bottom, #1a1a1a, #000);
+            border: 1px solid var(--gold-royal);
+            color: var(--gold-royal);
+            padding: 25px 70px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: 0.5s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-empire::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0; height: 100%;
+            background: var(--gold-royal);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn-empire:hover {
+            color: #000;
+            box-shadow: 0 0 40px rgba(197, 160, 89, 0.4);
+        }
+
+        .btn-empire:hover::after { width: 100%; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #111 0%, #000 80%);
+            position: relative;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .hero::before {
+            content: '👑';
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(197, 160, 89, 0.3));
+        }
+
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero h2 { font-size: 1rem; color: var(--gold-royal); letter-spacing: 8px; margin-bottom: 40px; }
+
+        /* --- THE PROPOSITION --- */
+        .proposition { padding: 120px 0; text-align: center; background: var(--bg-panel); }
+        
+        .prop-content {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .highlight-box {
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 40px;
+            margin: 60px 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        /* --- TIMELINE (90 DAYS) --- */
+        .timeline-section { padding: 100px 0; }
+        .timeline-title { text-align: center; margin-bottom: 80px; font-size: 2.5rem; }
+
+        .phase {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            gap: 40px;
+        }
+
+        .phase-num {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: rgba(255,255,255,0.05);
+            position: relative;
+        }
+        
+        .phase-num::after {
+            content: '';
+            position: absolute;
+            bottom: 10px; left: 0; width: 100%; height: 2px;
+            background: var(--gold-royal);
+        }
+
+        .phase-content h3 { color: var(--gold-royal); margin-bottom: 10px; }
+
+        /* --- INCLUSIONS --- */
+        .inclusions {
+            background: linear-gradient(135deg, #0a0a0a 0%, #000 100%);
+            padding: 100px 0;
+            border-top: 1px solid rgba(197, 160, 89, 0.1);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border: 1px solid #222;
+            transition: 0.4s;
+        }
+        .feature-card:hover { border-color: var(--gold-royal); background: rgba(197, 160, 89, 0.05); }
+
+        /* --- VIP OPTION --- */
+        .vip-option {
+            margin: 80px auto 0;
+            max-width: 800px;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--gold-royal);
+            padding: 50px;
+            text-align: center;
+        }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 60px 0; color: #444; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .phase { flex-direction: column; text-align: center; gap: 10px; }
+            .phase-num { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h2>Mentoria High-Ticket</h2>
+            <h1>O Império <br><span class="gold-text">Akáshico</span></h1>
+            
+            <p style="max-width: 600px; margin: 20px auto 40px; opacity: 0.7;">
+                90 dias de acompanhamento estratégico e vibracional com Yan Simon.
+                Construa seu legado através do domínio da sua assinatura energética.
+            </p>
+
+            <!-- BOTÃO TOPO ATUALIZADO -->
+            <a href="https://akashahub.github.io/formularioMENTORIA1-1/" target="_blank" class="btn-empire">
+                Aplicar para a Mentoria
+            </a>
+        </div>
+    </section>
+
+    <!-- THE PROPOSITION -->
+    <section class="proposition">
+        <div class="container">
+            <div class="prop-content">
+                <p class="serif-italic" style="margin-bottom: 30px;">"O sucesso exige uma frequência que poucos conseguem sustentar sozinhos."</p>
+                <p>
+                    Você já atingiu um nível onde conselhos genéricos não funcionam mais. 
+                    Seu próximo salto não é sobre estratégia, é sobre <strong>Identidade e Energia</strong>.
+                </p>
+                <p style="margin-top: 20px;">
+                    Esta mentoria é o meu <strong>Círculo Interno</strong>. Durante 3 meses, eu serei o guardião da sua frequência, garantindo que sua energia esteja alinhada com a prosperidade massiva que você deseja manifestar.
+                </p>
+
+                <div class="highlight-box">
+                    <h3>Para quem é este lugar?</h3>
+                    <ul style="text-align: left; margin-top: 20px; list-style: none; color: #aaa;">
+                        <li style="margin-bottom: 10px;">🔱 Líderes e Empreendedores que sentem estagnação invisível.</li>
+                        <li style="margin-bottom: 10px;">🔱 Homens e Mulheres que querem dominar a arte da Fascinação.</li>
+                        <li style="margin-bottom: 10px;">🔱 Quem está pronto para investir de <strong>R$ 3k a R$ 10k</strong> em si mesmo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE STRUCTURE (90 DAYS) -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="timeline-title">A Jornada de <span class="gold-text">90 Dias</span></h2>
+
+            <div class="phase">
+                <div class="phase-num">Mês 1</div>
+                <div class="phase-content">
+                    <h3>Limpeza & Fundação</h3>
+                    <p>Rituais profundos de quebra de contratos antigos. Alinhamento dos 7 Chakras e identificação da sua Assinatura Energética Única.</p>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-num">Mês 2</div>
+                <div class="phase-content">
+                    <h3>Magnetismo & Poder</h3>
+                    <p>Instalação de códigos de Fascinação. Você aprenderá a dominar salas, negociações e relacionamentos usando apenas sua presença.</p>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-num">Mês 3</div>
+                <div class="phase-content">
+                    <h3>Consolidação do Império</h3>
+                    <p>Constelação vibracional da prosperidade. Preparação para voar sozinho na nova frequência. Ritual de encerramento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INCLUSIONS -->
+    <section class="inclusions">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 20px;">Arquitetura do Programa</h2>
+            <p style="text-align: center; color: #666;">O que está incluso no seu investimento.</p>
+
+            <div class="grid-features">
+                <div class="feature-card">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">📹</div>
+                    <h4>Sessões Semanais</h4>
+                    <p style="font-size: 0.9rem; color: #888;">Encontros 1:1 online para alinhamento, diagnóstico e estratégia em tempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">🎧</div>
+                    <h4>Biblioteca Akáshica</h4>
+                    <p style="font-size: 0.9rem; color: #888;">Acesso total e vitalício a todos os áudios, reprogramações e cursos digitais da marca.</p>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">📜</div>
+                    <h4>Reprogramação Personalizada</h4>
+                    <p style="font-size: 0.9rem; color: #888;">Áudios gravados exclusivamente para o seu subconsciente, com seu nome e suas metas.</p>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">📞</div>
+                    <h4>Acesso Direto</h4>
+                    <p style="font-size: 0.9rem; color: #888;">Contato direto via WhatsApp com Yan Simon durante os 90 dias para ajustes rápidos.</p>
+                </div>
+            </div>
+
+            <!-- VIP UPGRADE -->
+            <div class="vip-option">
+                <h3 style="color: var(--gold-royal); margin-bottom: 15px;">✨ Upgrade Presencial (VIP)</h3>
+                <p style="color: #ddd; margin-bottom: 20px;">
+                    Para alunos selecionados, a mentoria pode incluir uma <strong>Sessão Presencial de Encerramento</strong> (Imersão de 4h).
+                </p>
+                <p style="font-size: 0.9rem; opacity: 0.7;">*Disponibilidade e valores sob consulta na aplicação.</p>
+            </div>
+
+            <!-- BOTÃO FINAL ATUALIZADO -->
+            <div style="text-align: center; margin-top: 80px;">
+                <a href="https://akashahub.github.io/formularioMENTORIA1-1/" target="_blank" class="btn-empire">
+                    Aplicar para uma Vaga
+                </a>
+                <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">Processo seletivo necessário.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        YAN SIMON EXPERIENCE &copy; 2024
+    </footer>
+
+</body>
